@@ -6,11 +6,18 @@ public class PlayerController : MonoBehaviour
 
     float axisH; //入力の方向を記憶するための変数
     public float speed = 3.0f;
-    
+
+    bool gojump = false; //←ジャンプフラグ(初期値は偽=false)
+    public float jumpPower = 9.0f;
+
+    bool onGround = false; //地面にいるかどうかの判定（いる＝true）
+    public LayerMask groundLayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -22,15 +29,52 @@ public class PlayerController : MonoBehaviour
             //Verocityの元となる値の取得（1.0ｆずつ動く）
             axisH = Input.GetAxisRaw("Horizontal");
 
+            if(axisH > 0)
+            {
+                //右を向く
+                transform.localScale = new Vector3(1,1,1);
+            }
+            else if(axisH < 0)
+            {
+                //左を向く
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            //GetButtonDownメソッド→引数に指定したボタンが押されたらTrue（＝初期値の逆）になる
+            if (Input.GetButtonDown("Jump"))
+            {
+                Jump(); //Jumpメソッドの発動
+            }
         }
 
     }
 
     //1秒間に50回(50fps)繰り返すように制御しながら行う繰り返しメソッド
-    private void FixedUpdate()
+    void FixedUpdate()
     {
+        //地面判定をサークルキャストで行ってその結果を変数onGroundに代入
+        onGround = Physics2D.CircleCast(
+            transform.position,   //発射位置＝プレイヤーの位置（基準点）
+            0.2f,                 //サークルキャストの円の大きさ（半径）
+            new Vector2(0,1.0f),　//発射方向※下方向
+            0,                     //発射距離
+            groundLayer       //対象となるレイヤー情報
+            );
+
         //velocityに値を代入
         rbody.linearVelocity = new Vector2(axisH * speed, rbody.linearVelocity.y);
 
+        if (gojump == true)
+        {
+            //ジャンプさせる→プレイヤーを上に押し出す
+            rbody.AddForce(new Vector2(0,jumpPower),ForceMode2D.Impulse);
+            gojump = false;
+        }
+    }
+
+    //Jump専用のメソッド
+    void Jump()
+    {
+        gojump = true; //JumpフラグをONにする
     }
 }
