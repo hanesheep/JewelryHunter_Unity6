@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("プレイヤーの能力値")]
+    public float speed = 3.0f;
+    public float jumpPower = 9.0f;
+
+    [Header("地面判定の対象レイヤー")]
+    public LayerMask groundLayer;
+
     Rigidbody2D rbody; //PlayerについているRigidBody2Dを扱うための変数
 
     float axisH; //入力の方向を記憶するための変数
-    public float speed = 3.0f;
-
+ 
     bool gojump = false; //←ジャンプフラグ(初期値は偽=false)
-    public float jumpPower = 9.0f;
-
+ 
     bool onGround = false; //地面にいるかどうかの判定（いる＝true）
-    public LayerMask groundLayer;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,13 +63,14 @@ public class PlayerController : MonoBehaviour
             0.2f,                 //サークルキャストの円の大きさ（半径）
             new Vector2(0,1.0f),　//発射方向※下方向
             0,                     //発射距離
-            groundLayer       //対象となるレイヤー情報
+            groundLayer       //対象となるレイヤー情報 ※LayerMask型
             );
 
         //velocityに値を代入
         rbody.linearVelocity = new Vector2(axisH * speed, rbody.linearVelocity.y);
 
-        if (gojump == true)
+        //ジャンプフラグがたったら
+        if (gojump)
         {
             //ジャンプさせる→プレイヤーを上に押し出す
             rbody.AddForce(new Vector2(0,jumpPower),ForceMode2D.Impulse);
@@ -75,6 +81,10 @@ public class PlayerController : MonoBehaviour
     //Jump専用のメソッド
     void Jump()
     {
-        gojump = true; //JumpフラグをONにする
+        if (onGround)
+        {
+            gojump = true; //JumpフラグをONにする
+        }
+        
     }
 }
