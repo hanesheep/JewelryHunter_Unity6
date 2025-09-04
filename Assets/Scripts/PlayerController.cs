@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
 
     Rigidbody2D rbody; //PlayerについているRigidBody2Dを扱うための変数
+    Animator animator; //Animatorコンポーネントを扱うための変数
 
     float axisH; //入力の方向を記憶するための変数
  
@@ -21,8 +22,9 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rbody = GetComponent<Rigidbody2D>();
+        rbody = GetComponent<Rigidbody2D>(); //Playerについているコンポーネント情報を取得
 
+        animator = GetComponent<Animator>(); //Animatorについているコンポーネント情報を取得
     }
 
     // Update is called once per frame
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        
+
     }
 
     //1秒間に50回(50fps)繰り返すように制御しながら行う繰り返しメソッド
@@ -73,8 +77,20 @@ public class PlayerController : MonoBehaviour
         if (gojump)
         {
             //ジャンプさせる→プレイヤーを上に押し出す
-            rbody.AddForce(new Vector2(0,jumpPower),ForceMode2D.Impulse);
+            rbody.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
             gojump = false;
+        }
+
+        if (onGround) //地面の上にいるとき
+        {
+            if (axisH == 0) //左右が押されていない
+            {
+                animator.SetBool("Run", false);　//Idleアニメに切り替え
+            }
+            else //左右が押されている
+            {
+                animator.SetBool("Run", true);　//Runアニメに切り替え
+            }
         }
     }
 
@@ -84,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (onGround)
         {
             gojump = true; //JumpフラグをONにする
+            animator.SetTrigger("Jump");
         }
         
     }
