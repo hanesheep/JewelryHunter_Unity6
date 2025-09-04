@@ -81,8 +81,8 @@ public class PlayerController : MonoBehaviour
             gojump = false;
         }
 
-        if (onGround) //地面の上にいるとき
-        {
+        //if (onGround) //地面の上にいるとき
+        //{
             if (axisH == 0) //左右が押されていない
             {
                 animator.SetBool("Run", false);　//Idleアニメに切り替え
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("Run", true);　//Runアニメに切り替え
             }
-        }
+        //}
     }
 
     //Jump専用のメソッド
