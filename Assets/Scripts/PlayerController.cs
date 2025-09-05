@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ゲームのステータスがplayingでないなら。
+        if (GameManager.gameState != "playing")
+        {
+            return; //その1フレを強制終了
+        }
         ////もしも水平方向のキーが押されたら(書かなくても成立はする)
         //if (Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -61,6 +66,10 @@ public class PlayerController : MonoBehaviour
     //1秒間に50回(50fps)繰り返すように制御しながら行う繰り返しメソッド
     void FixedUpdate()
     {
+        if (GameManager.gameState != "playing")
+        {
+            return; //その1フレを強制終了
+        }
         //地面判定をサークルキャストで行ってその結果を変数onGroundに代入
         onGround = Physics2D.CircleCast(
             transform.position,   //発射位置＝プレイヤーの位置（基準点）
@@ -112,6 +121,19 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.gameState = "gameclear";
             Debug.Log("ゴールに接触した！");
+            Goal();
         }
+    }
+
+    public void Goal()
+    {
+        animator.SetBool("Clear", true); //クリアアニメに切り替え
+        GameStop();                      //プレイヤーのVelocityを止めるメソッド
+    }
+
+    void GameStop()
+    {
+        //速度を0にリセット
+        rbody.linearVelocity = new Vector2(0, 0);
     }
 }

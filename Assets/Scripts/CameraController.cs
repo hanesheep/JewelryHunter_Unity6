@@ -53,16 +53,16 @@ public class CameraController : MonoBehaviour
 
         if (isScrollY)
         {
-            x = transform.position.y + (scrollSpeedY * Time.deltaTime);
+            y = transform.position.y + (scrollSpeedY * Time.deltaTime);
         }
 
         if (y < topLimit)
         {
-            x = topLimit;
+            y = topLimit;
         }
         else if (y > bottomLimit)
         {
-            x = bottomLimit;
+            y = bottomLimit;
         }
         //取り決めた各変数X,Y,Zの値をカメラのポジションとする
         transform.position = new Vector3(x, y, z);
