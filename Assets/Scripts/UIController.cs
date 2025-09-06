@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     public GameObject retryButton; //リトライボタン
     public GameObject nextButton;  //ネクストボタン
 
-    public Sprite gameClearSprite;
+    public Sprite gameClearSprite; //ゲームクリアの絵
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.gameState == "gameClear") 
+        if (GameManager.gameState == "gameclear") 
         {
             buttonPanel.SetActive(true); //ボタンパネルの復活
             mainImage.SetActive(true);　 //メイン画像の復活

@@ -127,13 +127,14 @@ public class PlayerController : MonoBehaviour
 
     public void Goal()
     {
-        animator.SetBool("Clear", true); //クリアアニメに切り替え
+        animator.SetBool("Clear",true); //クリアアニメに切り替え
         GameStop();                      //プレイヤーのVelocityを止めるメソッド
     }
 
     void GameStop()
     {
         //速度を0にリセット
-        rbody.linearVelocity = new Vector2(0, 0);
+        //rbody.linearVelocity = new Vector2(0, 0);
+        rbody.linearVelocity = Vector2.zero;
     }
 }
