@@ -117,18 +117,41 @@ public class PlayerController : MonoBehaviour
     //isTrigger特性を持っているColliderとぶつかったら処理される
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //ぶつかった相手が"Goal"タグを持っていたら
         if (collision.gameObject.CompareTag("Goal"))
         {
             GameManager.gameState = "gameclear";
             Debug.Log("ゴールに接触した！");
             Goal();
         }
+
+        //ぶつかった相手が"Dead"タグを持っていたら（同上）
+        if (collision.gameObject.CompareTag("Dead"))
+        {
+            GameManager.gameState = "gameover";
+            Debug.Log("敗北者");
+            GameOver();
+        }
     }
 
+    //ゴールメソッド
     public void Goal()
     {
         animator.SetBool("Clear",true); //クリアアニメに切り替え
         GameStop();                      //プレイヤーのVelocityを止めるメソッド
+    }
+
+    //ゲームオーバーメドッソ
+    public void GameOver()
+    {
+        animator.SetBool("Dead", true); //デッドアニメに切り替え
+        GameStop();
+
+        //当たり判定を無効にする
+        GetComponent<CapsuleCollider2D>().enabled = false;
+
+        //少し上に飛び跳ねさせる
+        rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
     }
 
     void GameStop()
