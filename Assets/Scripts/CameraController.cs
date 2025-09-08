@@ -31,40 +31,45 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //いったんプレイヤーのX,Y座標の位置を変数に取得
-        x = player.transform.position.x;
-        y = player.transform.position.y;
+        if (player != null)
+        {
 
-        //もしも横の強制スクロールフラグが立っていたら
-        if (isScrollX)
-        {
-            //「前の座標」に「変数分だけ加算(性能差に由来しない)」した座標
-            x = transform.position.x + (scrollSpeedX * Time.deltaTime);
-        } 
+            //いったんプレイヤーのX,Y座標の位置を変数に取得
+            x = player.transform.position.x;
+            y = player.transform.position.y;
 
-        if (x < leftLimit)
-        {
-            x = leftLimit;
-        }
-        else if (x > rightLimit)
-        {
-            x = rightLimit;
-        }
+            //もしも横の強制スクロールフラグが立っていたら
+            if (isScrollX)
+            {
+                //「前の座標」に「変数分だけ加算(性能差に由来しない)」した座標
+                x = transform.position.x + (scrollSpeedX * Time.deltaTime);
+            }
 
-        if (isScrollY)
-        {
-            y = transform.position.y + (scrollSpeedY * Time.deltaTime);
-        }
+            if (x < leftLimit)
+            {
+                x = leftLimit;
+            }
+            else if (x > rightLimit)
+            {
+                x = rightLimit;
+            }
 
-        if (y < topLimit)
-        {
-            y = topLimit;
+            if (isScrollY)
+            {
+                y = transform.position.y + (scrollSpeedY * Time.deltaTime);
+            }
+
+            if (y < topLimit)
+            {
+                y = topLimit;
+            }
+            else if (y > bottomLimit)
+            {
+                y = bottomLimit;
+            }
+            //取り決めた各変数X,Y,Zの値をカメラのポジションとする
+            transform.position = new Vector3(x, y, z);
+
         }
-        else if (y > bottomLimit)
-        {
-            y = bottomLimit;
-        }
-        //取り決めた各変数X,Y,Zの値をカメラのポジションとする
-        transform.position = new Vector3(x, y, z);
     }
 }

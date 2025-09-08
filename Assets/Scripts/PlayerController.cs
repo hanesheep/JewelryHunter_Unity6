@@ -152,6 +152,9 @@ public class PlayerController : MonoBehaviour
 
         //­‚µã‚É”ò‚Ñ’µ‚Ë‚³‚¹‚é
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+
+        //ƒvƒŒƒCƒ„[‚ğŠÔ·(‚˜(3.0‚†)•bŒã)‚Å–•Á
+        Destroy(gameObject,3.0f);
     }
 
     void GameStop()
