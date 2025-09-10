@@ -132,6 +132,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("敗北者");
             GameOver();
         }
+        //アイテムに触れたらステージスコアに加算
+        if (collision.gameObject.CompareTag("ItemScore"))
+        {
+            GameManager.stageScore += collision.gameObject.GetComponent<ItemData>().value;
+            Destroy(collision.gameObject);
+        }
     }
 
     //ゴールメソッド
