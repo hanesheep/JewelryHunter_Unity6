@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 67329921974438865}
   m_Layer: 0
   m_Name: Item
-  m_TagString: ScoreItem
+  m_TagString: ItemScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,10 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe9084b0c9c2e4f881eb4a0ed7432f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Colors: 0
+  colors: 0
   itemSprites:
   - {fileID: 1062989191655433596, guid: f67efd81fe2822841bdac16670904982, type: 3}
   - {fileID: -3244114122435731308, guid: 265cd104f089bda4ab8edfcd3cbfed8a, type: 3}
   - {fileID: 506777212851872085, guid: 6e9d6f4285f4d9948bb4566ccccf3ec2, type: 3}
   - {fileID: -993113999835996517, guid: cb573a2593463c0489f92779f9905b3f, type: 3}
-  Value: 50
+  value: 0

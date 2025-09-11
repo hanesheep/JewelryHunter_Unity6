@@ -15,9 +15,5 @@ public class ShellController : MonoBehaviour
     {
         Destroy(gameObject);@//‰½‚©‚ÉÚG‚µ‚½‚çíœ
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

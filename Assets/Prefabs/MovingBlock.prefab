@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1762802038191252561}
   - component: {fileID: 4401102025425349565}
   - component: {fileID: 8122555581182932206}
+  - component: {fileID: 7397184413254287148}
   m_Layer: 6
   m_Name: MovingBlock
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 406136904609773337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.78, y: -1.2, z: 0}
+  m_LocalPosition: {x: 7.06, y: -1.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,3 +135,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.2, y: 0.69}
   m_EdgeRadius: 0
+--- !u!114 &7397184413254287148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406136904609773337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a0bcd40370ec44cbd42b81d27819ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveX: 5
+  moveY: 3
+  times: 3
+  wait: 1
+  isMoveWhenOn: 0
