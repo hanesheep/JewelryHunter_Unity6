@@ -3335,7 +3335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 603890334315957792, guid: 67d51d0f916c8064bb074b28f9f2d6fb, type: 3}
       propertyPath: gameTime
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6031602530186294150, guid: 67d51d0f916c8064bb074b28f9f2d6fb, type: 3}
       propertyPath: m_Pivot.x
@@ -3423,7 +3423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6384634554968687091, guid: 67d51d0f916c8064bb074b28f9f2d6fb, type: 3}
       propertyPath: sceneName
-      value: Stage1
+      value: Result
       objectReference: {fileID: 0}
     - target: {fileID: 7494287760127513387, guid: 67d51d0f916c8064bb074b28f9f2d6fb, type: 3}
       propertyPath: m_Camera
