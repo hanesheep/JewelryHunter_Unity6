@@ -108,8 +108,27 @@ public class UIController : MonoBehaviour
             float times = timeCnt.displayTime;
             timeText.GetComponent<TextMeshProUGUI>().text = Mathf.Ceil(times).ToString();
 
-            //スコアもリアルタイムに更新
-            UpdateScore();
+            if (timeCnt.isCountDown)
+            {
+                if(timeCnt.displayTime <= 0)
+                {
+                    //プレイヤーを見つけてきてそのPlayerControllerコンポーネントのGameOverメソッドをやらせる
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GameOver();
+                    GameManager.gameState = "gameover";
+                }
+            }
+            else
+            {
+                if(timeCnt.displayTime >= timeCnt.gameTime)
+                {
+                    //プレイヤーを見つけてきてそのPlayerControllerコンポーネントのGameOverメソッドをやらせる
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GameOver();
+                    GameManager.gameState = "gameover";
+                }
+            }
+
+                //スコアもリアルタイムに更新
+                UpdateScore();
         }
     }
 

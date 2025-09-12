@@ -17,7 +17,11 @@ public class PlayerController : MonoBehaviour
     bool gojump = false; //←ジャンプフラグ(初期値は偽=false)
  
     bool onGround = false; //地面にいるかどうかの判定（いる＝true）
-    
+
+    AudioSource audio;
+    public AudioClip se_Jump;
+    public AudioClip se_ItemGet;
+    public AudioClip se_Damage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +29,8 @@ public class PlayerController : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>(); //Playerについているコンポーネント情報を取得
 
         animator = GetComponent<Animator>(); //Animatorについているコンポーネント情報を取得
+
+        audio =GetComponent<AudioSource>();  //AudioSourceコンポーネントの情報を代入
     }
 
     // Update is called once per frame
@@ -108,6 +114,9 @@ public class PlayerController : MonoBehaviour
     {
         if (onGround)
         {
+            //SEを鳴らす
+            audio.PlayOneShot(se_Jump);
+
             gojump = true; //JumpフラグをONにする
             animator.SetTrigger("Jump");
         }
@@ -128,6 +137,9 @@ public class PlayerController : MonoBehaviour
         //ぶつかった相手が"Dead"タグを持っていたら（同上）
         if (collision.gameObject.CompareTag("Dead"))
         {
+            //SEを鳴らす
+            audio.PlayOneShot(se_Damage);
+
             GameManager.gameState = "gameover";
             Debug.Log("敗北者");
             GameOver();
@@ -135,6 +147,9 @@ public class PlayerController : MonoBehaviour
         //アイテムに触れたらステージスコアに加算
         if (collision.gameObject.CompareTag("ItemScore"))
         {
+            //SEを鳴らす
+            audio.PlayOneShot(se_ItemGet);
+
             GameManager.stageScore += collision.gameObject.GetComponent<ItemData>().value;
             Destroy(collision.gameObject);
         }
@@ -147,7 +162,7 @@ public class PlayerController : MonoBehaviour
         GameStop();                      //プレイヤーのVelocityを止めるメソッド
     }
 
-    //ゲームオーバーメドッソ
+    //ゲームオーバーメソッド
     public void GameOver()
     {
         animator.SetBool("Dead", true); //デッドアニメに切り替え
