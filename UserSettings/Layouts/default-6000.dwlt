@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 659
     height: 933
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -609,8 +609,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Console\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 427
-    y: 673
+    x: 428
+    y: 24
     width: 538
     height: 313
   m_SerializedDataModeController:
@@ -645,8 +645,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1261
-    y: 79
+    x: 1262
+    y: 24
     width: 658
     height: 907
   m_SerializedDataModeController:
@@ -694,8 +694,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 967
-    y: 489
+    x: 1
+    y: 434
     width: 292
     height: 497
   m_SerializedDataModeController:
@@ -739,7 +739,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: f8b30000
     m_LastClickedID: 46072
-    m_ExpandedIDs: 00000000e4b30000eab3000000ca9a3b
+    m_ExpandedIDs: 000000006eb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -768,7 +768,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e4b3000000ca9a3b
+    m_ExpandedIDs: 000000006eb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 673
+    y: 24
     width: 426
     height: 313
   m_SerializedDataModeController:
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 966
     height: 568
   m_SerializedDataModeController:
@@ -1643,8 +1643,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 967
-    y: 79
+    x: 1
+    y: 24
     width: 292
     height: 384
   m_SerializedDataModeController:
@@ -1661,8 +1661,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 20b60000
-      m_LastClickedID: 46624
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: 125cfeffc2f7ffff14b6000020b60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
