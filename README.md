@@ -9,7 +9,7 @@
 * アニメーションの作り方
 * タグやレイヤーの使い方
 など基本を学んでいます。
-
+  
 ## 制作のポイント
 ### アニメーションをトランジションで作成
 ![トランジションの絵](readmeImg/Animation.jpg)
@@ -17,6 +17,7 @@ Playerのアニメ切り替えには各クリップをトランジションで�
   
 ## Itemのコーディングの効率化
 ![Itemのコーディング](readmeImg/Item.jpg)
+  
 Itemは列挙型のItemColor型を自作して、ItemColor型の変数次第で何色が選ばれているかにより見た目が変わるようなコーディングの工夫を行いました。
   
 
@@ -63,4 +64,5 @@ public class ItemData : MonoBehaviour
   
 ## TextMeshProのデザイン切り分け
 ![Itemのコーディング](readmeImg/TextMeshPro.jpg)
+  
 TextMeshProのデザインを細かく切り分けてデータを用意するなど工夫をしました。
