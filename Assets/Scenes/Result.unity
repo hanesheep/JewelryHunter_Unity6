@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 221122373}
   - component: {fileID: 221122372}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000083447, y: -25}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 370.7766, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221122372
@@ -588,8 +588,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -269}
-  m_SizeDelta: {x: 358.3769, y: 102.4507}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: 493.009, y: 163.1299}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006456076
 MonoBehaviour:
@@ -681,9 +681,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 2530564911472380330, guid: b77e798316e4b794590e339f9fb37480, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64bf06f4e8c7574fb4f0b93113cd160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 221122370}
 --- !u!82 &1285172211
 AudioSource:
   m_ObjectHideFlags: 0
